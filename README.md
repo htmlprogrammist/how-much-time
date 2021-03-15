@@ -13,3 +13,6 @@ In order for this program to work, you need to do this:
 To determine what your table ID is, just look at the link. For example: `https://docs.google.com/spreadsheets/d/1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A/view`. 
 
 In this case: `spreadsheet_id = 1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A`
+
+## For what needs?
+This project will help me to remember how to cope with Google Spreadsheets API. It will also be used for my previous [project](https://github.com/htmlprogrammist/auto-sudoku)
