@@ -8,7 +8,7 @@ The program returns us the **number of hours**, even if it is minutes. That's wh
 ## Quickstart
 In order for this program to work, you need to do this: 
 - You can easily run the file `quickstart.py` (This file is given in the documentation of [Google Spreadsheets API](https://developers.google.com/sheets/api/quickstart/python)). 
-- Then you need to in the file `tokens.py` enter the ID of your table in Google Sheets. 
+- Then you need to enter the ID of your table in Google Sheets in the file `tokens.py`. 
 
 To determine what your table ID is, just look at the link. For example: `https://docs.google.com/spreadsheets/d/1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A/view`. 
 
