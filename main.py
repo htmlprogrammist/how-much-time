@@ -11,7 +11,6 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
      'https://www.googleapis.com/auth/drive'])
 httpAuth = credentials.authorize(httplib2.Http())
 service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
-stdin = input()
 
 
 def main(value):
@@ -28,7 +27,4 @@ def main(value):
     while diff_hours > 0:
         diff_minutes += 60
         diff_hours -= 1
-    amount_of_hours = round(diff_minutes / 60, 2)
-
-
-main(stdin)
+    return round(diff_minutes / 60, 2)
