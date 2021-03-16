@@ -24,7 +24,6 @@ def main(value):
     if diff_minutes < 0:
         diff_hours -= 1
         diff_minutes = 60 + diff_minutes  # 60 + (-10) = 50
-    while diff_hours > 0:
-        diff_minutes += 60
-        diff_hours -= 1
+    if diff_hours > 0:
+        diff_minutes += diff_hours * 60
     return round(diff_minutes / 60, 2)
