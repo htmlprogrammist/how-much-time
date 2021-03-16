@@ -29,7 +29,6 @@ def main(value):
         diff_minutes += 60
         diff_hours -= 1
     amount_of_hours = round(diff_minutes / 60, 2)
-    print(amount_of_hours)
 
 
 main(stdin)
