@@ -4,7 +4,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import main
 import tokens
 
-CREDENTIALS_FILE = 'creds.json'
+CREDENTIALS_FILE = 'credentials.json'
 spreadsheet_id = tokens.spreadsheet_id
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     CREDENTIALS_FILE,
