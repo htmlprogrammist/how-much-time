@@ -27,9 +27,10 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-
 tokens.py
 tele_sheets_bot.py
+credentials.json
+api-info.txt
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
