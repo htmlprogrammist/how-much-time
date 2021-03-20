@@ -13,9 +13,11 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
 httpAuth = credentials.authorize(httplib2.Http())
 service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
 
-range_name = 'A2'
-result = service.spreadsheets().values().get(
-    spreadsheetId=spreadsheet_id, range=range_name).execute()
-rows = result.get('values', [])
-print(rows)
-print('{0} rows retrieved.'.format(len(rows)))
+
+def read_values(range_name):
+    # range_name = 'B8'
+    result = service.spreadsheets().values().get(
+        spreadsheetId=spreadsheet_id, range=range_name).execute()
+    rows = result.get('values', [])
+    print(rows)
+    print('{0} rows retrieved.'.format(len(rows)))

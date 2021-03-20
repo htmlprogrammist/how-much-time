@@ -1,4 +1,4 @@
-def main(value):
+def calculate(value):
     start_time_hours = int(value.split(' - ')[0].split(':')[0])  # получаю значение часа
     start_time_minutes = int(value.split(' - ')[0].split(':')[1])  # получаю значение минут
     end_time_hours = int(value.split(' - ')[1].split(':')[0])  # Аналогично
@@ -16,3 +16,8 @@ def main(value):
         return diff_minutes // 60
     else:
         return result
+
+
+# Здесь должен быть цикл и вызов функции в spreadsheet.py
+def main():
+    pass
