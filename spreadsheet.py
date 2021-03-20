@@ -12,3 +12,10 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
      'https://www.googleapis.com/auth/drive'])
 httpAuth = credentials.authorize(httplib2.Http())
 service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
+
+range_name = 'A2'
+result = service.spreadsheets().values().get(
+    spreadsheetId=spreadsheet_id, range=range_name).execute()
+rows = result.get('values', [])
+print(rows)
+print('{0} rows retrieved.'.format(len(rows)))
