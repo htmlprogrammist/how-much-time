@@ -1,3 +1,6 @@
+import spreadsheet
+
+
 def calculate(value):
     start_time_hours = int(value.split(' - ')[0].split(':')[0])  # получаю значение часа
     start_time_minutes = int(value.split(' - ')[0].split(':')[1])  # получаю значение минут
@@ -18,6 +21,22 @@ def calculate(value):
         return result
 
 
-# Здесь должен быть цикл и вызов функции в spreadsheet.py
-def main():
-    pass
+for i in range(1, 8):
+    letter = chr(65 + i)
+    lyceum_result = 0
+    tutoring_result = 0
+    rows = spreadsheet.read_values(letter)
+    # print(rows)
+    try:
+        lyceum_result = calculate(rows[0]['values'][0][0])
+    except KeyError:
+        pass
+    tutoring_result = calculate(rows[1]['values'][0][0])
+    try:
+        tutoring_result += calculate(rows[2]['values'][0][0])
+    except KeyError:
+        pass
+    print(lyceum_result, tutoring_result)
+
+
+
