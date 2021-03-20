@@ -11,4 +11,8 @@ def main(value):
         diff_minutes = 60 + diff_minutes  # 60 + (-10) = 50
     if diff_hours > 0:
         diff_minutes += diff_hours * 60
-    return round(diff_minutes / 60, 2)
+    result = round(diff_minutes / 60, 2)
+    if result.is_integer():
+        return diff_minutes // 60
+    else:
+        return result
