@@ -15,18 +15,17 @@ def calculate(value):
     if diff_hours > 0:
         diff_minutes += diff_hours * 60
     result = round(diff_minutes / 60, 2)
-    if result.is_integer():
+    if result.is_integer():  # Чтобы выводило не 8.0, а 8
         return diff_minutes // 60
     else:
         return result
 
 
 for i in range(1, 8):
-    letter = chr(65 + i)
+    letter = chr(65 + i)  # Получаю букву (колонку), которую потом передам в функцию read_values()
     lyceum_result = 0
     tutoring_result = 0
     rows = spreadsheet.read_values(letter)
-    # print(rows)
     try:
         lyceum_result = calculate(rows[0]['values'][0][0])
     except KeyError:
@@ -36,5 +35,5 @@ for i in range(1, 8):
         tutoring_result += calculate(rows[2]['values'][0][0])
     except KeyError:
         pass
-    # print(lyceum_result, tutoring_result)
-    
+    spreadsheet.write_values(lyceum_result, letter + '9')
+    spreadsheet.write_values(tutoring_result, letter + '13')

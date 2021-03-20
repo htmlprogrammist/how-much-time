@@ -14,16 +14,24 @@ service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
 
 
 def read_values(letter):
-    range_names = []
+    range_names = []  # ['B8', 'B11', 'B12']
     range_names.append(letter+'8')
     range_names.append(letter+'11')
     range_names.append(letter+'12')
     result = service.spreadsheets().values().batchGet(
         spreadsheetId=spreadsheet_id, ranges=range_names).execute()
-    ranges = result.get('valueRanges', [])
-    # print('{0} ranges retrieved.'.format(len(ranges)))
-    return ranges
+    return result.get('valueRanges', [])
 
 
-def write_values(range_name):
-    pass
+def write_values(value, position):
+    values = service.spreadsheets().values().batchUpdate(
+        spreadsheetId=spreadsheet_id,
+        body={
+            "valueInputOption": "USER_ENTERED",
+            "data": [
+                {"range": "{0}".format(position),
+                 "majorDimension": "ROWS",
+                 "values": [[value]]},
+            ]
+        }
+    ).execute()
