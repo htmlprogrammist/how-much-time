@@ -16,3 +16,7 @@ In this case: `spreadsheet_id = '1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A'`
 
 ## For what needs?
 This project will help me to remember how to cope with Google Spreadsheets API. It will also be used for my previous [project](https://github.com/htmlprogrammist/auto-sudoku)
+
+## Someday
+- Redo the `try` and `except` construction to avoid repetition
+- Briefly do getting letters in `range_names`
