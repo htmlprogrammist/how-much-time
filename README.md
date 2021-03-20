@@ -20,3 +20,4 @@ This project will help me to remember how to cope with Google Spreadsheets API. 
 ## Someday
 - Redo the `try` and `except` construction to avoid repetition
 - Briefly do getting letters in `range_names`
+- If the number of hours equals 0, then do not enter anything
