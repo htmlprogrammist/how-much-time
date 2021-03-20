@@ -36,7 +36,5 @@ for i in range(1, 8):
         tutoring_result += calculate(rows[2]['values'][0][0])
     except KeyError:
         pass
-    print(lyceum_result, tutoring_result)
-
-
-
+    # print(lyceum_result, tutoring_result)
+    
