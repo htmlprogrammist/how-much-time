@@ -16,7 +16,7 @@ To determine what your table ID is, just look at the link. For example: `https:/
 In this case: `spreadsheet_id = '1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A'`
 
 ## For what needs?
-This project will help me to remember how to cope with Google Spreadsheets API. It will also be used for my previous [project](https://github.com/htmlprogrammist/auto-sudoku)
+This project will help me to remember how to cope with Google Spreadsheets API. It will also be used for my previous [one](https://github.com/htmlprogrammist/auto-sudoku)
 
 ## Someday
 - Redo the `try` and `except` construction to avoid repetition
