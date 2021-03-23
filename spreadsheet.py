@@ -13,11 +13,14 @@ httpAuth = credentials.authorize(httplib2.Http())
 service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
 
 
-def read_values(letter):
+def read_values(letter, even):
     range_names = []  # ['B8', 'B11', 'B12']
-    range_names.append(letter+'8')
-    range_names.append(letter+'11')
-    range_names.append(letter+'12')
+    if not even:
+        range_names.append(letter + '8')
+    else:
+        range_names.append(letter + '11')
+        range_names.append(letter + '12')
+    print(range_names)
     result = service.spreadsheets().values().batchGet(
         spreadsheetId=spreadsheet_id, ranges=range_names).execute()
     return result.get('valueRanges', [])
