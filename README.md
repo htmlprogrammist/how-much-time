@@ -9,11 +9,7 @@ The program returns us the **number of hours**, even if it is minutes. That's wh
 In order for this program to work, you need to do this: 
 - Turn on the Google Sheets API (For more info use [Google Spreadsheets API](https://developers.google.com/sheets/api/quickstart/python));
 - Install the Google Client Library: `pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`;
-- Then you need to enter the ID of your table in Google Sheets in the file `tokens.py`.
-
-To determine what your table ID is, just look at the link. For example: `https://docs.google.com/spreadsheets/d/1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A/view`. 
-
-In this case: `spreadsheet_id = '1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A'`
+- Then you need to enter the ID of your table in Google Sheets in the file `tokens.py`. To determine what your table ID is, just look at the link. For example: `https://docs.google.com/spreadsheets/d/1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A/view`. In this case: `spreadsheet_id = '1UB1rF11HUTtIzRFbLOVEwBESmTSitlT_EGORvjHu54A'`
 
 ## For what needs?
 This project will help me to remember how to cope with Google Spreadsheets API. It will also be used for my previous [one](https://github.com/htmlprogrammist/auto-sudoku)
