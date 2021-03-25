@@ -20,7 +20,8 @@ def read_values(letter, even):
     else:
         range_names.append(letter + '11')
         range_names.append(letter + '12')
-    print(range_names)
+    print(range_names)  # Он тупо чередует их поперекрёстно. B8, потом не B11 и B12
+    # ... а C11, C12
     result = service.spreadsheets().values().batchGet(
         spreadsheetId=spreadsheet_id, ranges=range_names).execute()
     return result.get('valueRanges', [])

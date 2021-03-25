@@ -21,9 +21,14 @@ def calculate(value):
         return result
 
 
-def getting_hours(even, hours):
-    if even:
+def getting_hours(even, hours, letter):
+    if even:  # Если четное, то это свободное время
+        hours += calculate(rows[0]['values'][0][0])
         hours += calculate(rows[1]['values'][0][0])
+        spreadsheet.write_values(hours, letter + '13')
+    else:  # В противном случае, это лицей
+        hours += calculate(rows[0]['values'][0][0])
+        spreadsheet.write_values(hours, letter + '9')
 
 
 for i in range(1, 15):
@@ -34,19 +39,8 @@ for i in range(1, 15):
     else:
         even = True
     rows = spreadsheet.read_values(letter, even)
-    # Лицей не всегда встречается в таблице (в свободном времени), поэтому try except
-    # необходим. Хмммм... как бы выкрутиться здесь...
     try:
         # hours += calculate(rows[0]['values'][0][0])
-        getting_hours(even, )
+        getting_hours(even, hours, letter)
     except KeyError:
         pass
-
-    if not even:
-        spreadsheet.write_values(hours, letter + '9')
-    else:
-        try:
-            hours += calculate(rows[1]['values'][0][0])
-        except KeyError:
-            pass
-        spreadsheet.write_values(hours, letter + '13')
