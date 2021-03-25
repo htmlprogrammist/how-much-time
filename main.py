@@ -21,26 +21,19 @@ def calculate(value):
         return result
 
 
-def getting_hours(even, hours, letter):
-    if even:  # Если четное, то это свободное время
-        hours += calculate(rows[0]['values'][0][0])
-        hours += calculate(rows[1]['values'][0][0])
-        spreadsheet.write_values(hours, letter + '13')
-    else:  # В противном случае, это лицей
-        hours += calculate(rows[0]['values'][0][0])
-        spreadsheet.write_values(hours, letter + '9')
-
-
-for i in range(1, 15):
+for i in range(1, 8):
     letter = chr(65 + i)  # Получаю букву (колонку), которую потом передам в функцию read_values()
-    hours = 0
-    if i % 2 != 0:
-        even = False
-    else:
-        even = True
-    rows = spreadsheet.read_values(letter, even)
+    lyceum_result = 0
+    tutoring_result = 0
+    rows = spreadsheet.read_values(letter)
     try:
-        # hours += calculate(rows[0]['values'][0][0])
-        getting_hours(even, hours, letter)
+        lyceum_result = calculate(rows[0]['values'][0][0])
     except KeyError:
         pass
+    tutoring_result = calculate(rows[1]['values'][0][0])
+    try:
+        tutoring_result += calculate(rows[2]['values'][0][0])
+    except KeyError:
+        pass
+    spreadsheet.write_values(lyceum_result, letter + '9')
+    spreadsheet.write_values(tutoring_result, letter + '13')
