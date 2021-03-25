@@ -21,6 +21,11 @@ def calculate(value):
         return result
 
 
+def getting_hours(even, hours):
+    if even:
+        hours += calculate(rows[1]['values'][0][0])
+
+
 for i in range(1, 15):
     letter = chr(65 + i)  # Получаю букву (колонку), которую потом передам в функцию read_values()
     hours = 0
@@ -31,7 +36,12 @@ for i in range(1, 15):
     rows = spreadsheet.read_values(letter, even)
     # Лицей не всегда встречается в таблице (в свободном времени), поэтому try except
     # необходим. Хмммм... как бы выкрутиться здесь...
-    hours = calculate(rows[0]['values'][0][0])
+    try:
+        # hours += calculate(rows[0]['values'][0][0])
+        getting_hours(even, )
+    except KeyError:
+        pass
+
     if not even:
         spreadsheet.write_values(hours, letter + '9')
     else:
