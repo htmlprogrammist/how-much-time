@@ -5,6 +5,9 @@ The time is entered via ` - ` because for me it is visually more pleasant than t
 
 The program returns us the **number of hours**, even if it is minutes. That's what I need.
 
+## Example
+`10:55 - 13:25` returns `2.5`
+
 ## Quickstart
 In order for this program to work, you need to do this: 
 - Turn on the Google Sheets API (For more info use [Google Spreadsheets API](https://developers.google.com/sheets/api/quickstart/python));
