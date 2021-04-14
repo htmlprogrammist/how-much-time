@@ -21,19 +21,25 @@ def calculate(value):
         return result
 
 
+def call_calcutale(index):
+    try:
+        return calculate(rows[index]['values'][0][0])
+    except KeyError:
+        pass
+# Проблема: будет считывать с каждой строчки, но при этом он ведь не суммирует количество часов
+# Возможные пути решения:
+# - Создаём глобальные переменные, а в функциях переменные будут через +=
+# Проблема тогда: а как обнулять эти значения для каждой новой буквы?
+
 for i in range(1, 8):
     letter = chr(65 + i)  # Получаю букву (колонку), которую потом передам в функцию read_values()
     lyceum_result = 0
     tutoring_result = 0
-    rows = spreadsheet.read_values(letter)
-    try:
-        lyceum_result = calculate(rows[0]['values'][0][0])
-    except KeyError:
-        pass
-    tutoring_result = calculate(rows[1]['values'][0][0])
-    try:
-        tutoring_result += calculate(rows[2]['values'][0][0])
-    except KeyError:
-        pass
-    spreadsheet.write_values(lyceum_result, letter + '9')
-    spreadsheet.write_values(tutoring_result, letter + '13')
+    rows = spreadsheet.read_values(letter)  # len(rows) => 3 (т.к. range_names по 3 ячейки)
+    for j in range(3):
+        if j == 0:
+            spreadsheet.write_values(call_calcutale(j), letter + '9')
+        else:
+            spreadsheet.write_values(call_calcutale(j), letter + '13')
+    # spreadsheet.write_values(lyceum_result, letter + '9')
+    # spreadsheet.write_values(tutoring_result, letter + '13')
